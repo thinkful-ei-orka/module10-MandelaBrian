@@ -8,37 +8,39 @@ class Bomb extends React.Component {
 
     tickTock = 'tick'
 
-    divTwo = () => {
+    divTwo = (props) => {
         return (this.state.count % 2 === 0)
     }
-    equalEight = () => {
-        return (this.state.count >= 8)
+    atNine = (props) => {
+        return (this.state.count === 9)
     }
 
     componentDidMount(){
-        setTimeout(() => {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             count: this.state.count + 1
+    //     })
+    // }, 8000)
+        this.interval = setInterval(() => {
             this.setState({
                 count: this.state.count + 1
-        })
-    }, 1000)
-        // this.interval = setInterval(() => {
-        //     this.setState({
-        //         count: this.state.count + 1
                 
-        //     })
-        // }, 1000)   
+            })
+        }, 1000)   
     };
 
-    TickOrTock = () => {
-        if (this.equalEight) {
-            clearInterval()
+    TickOrTock = (props) => {
+        if (this.atNine(props)) {
+            clearInterval();
             this.setState({
                 count: 0
             })
             return 'BOOM!!!'
-        } else if (this.divTwo) {
+        }
+        
+        else if (this.divTwo(props)) {
             return 'tick'
-        } else if (!this.divTwo) {
+        } else if (!this.divTwo(props)) {
             return 'tock'
         } else {
             return 'Waiting to start'
@@ -49,8 +51,13 @@ class Bomb extends React.Component {
 
     render() {
         console.log(this.state.count)
+        if (this.state.count === 8) {
+            return (<div>
+                <p>BOOM!!!</p>
+            </div>) 
+        }
         return (<div>
-                <p>{<TickOrTock/>}</p>
+                <p>{this.TickOrTock(this.state.count)}</p>
             </div>)
     }
 }
