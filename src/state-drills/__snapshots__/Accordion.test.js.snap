@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion Component renders the UI empty 1`] = `<ul />`;
+
+exports[`Accordion Component renders the UI no sections active 1`] = `
+<ul>
+  <li>
+    <button
+      id={0}
+      onClick={[Function]}
+    >
+      Section 1
+    </button>
+    
+  </li>
+  <li>
+    <button
+      id={1}
+      onClick={[Function]}
+    >
+      Section 2
+    </button>
+    
+  </li>
+  <li>
+    <button
+      id={2}
+      onClick={[Function]}
+    >
+      Section 3
+    </button>
+    
+  </li>
+</ul>
+`;
+
+exports[`Accordion Component renders the UI only opens last when mutliple have been clicked 1`] = `<ul />`;
+
+exports[`Accordion Component renders the UI opens a clicked section 1`] = `<ul />`;

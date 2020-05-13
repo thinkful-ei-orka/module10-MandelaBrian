@@ -6,7 +6,7 @@ import './App.css';
 import HelloWorld from './state-drills/HelloWorld'
 import Bomb from './state-drills/Bomb'
 import RouletteGun from './state-drills/RouletteGun'
-
+import Accordion from './state-drills/Accordion'
 
 // const tabsProp = [
 //   { name: 'First tab',
@@ -23,7 +23,8 @@ class App extends Component {
       <div className="App">
         <HelloWorld />
         {/* <Bomb /> */}
-        <RouletteGun />
+        {/* <RouletteGun /> */}
+        <Accordion />
       </div>
     );
   }
