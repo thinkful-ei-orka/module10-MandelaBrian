@@ -7,14 +7,14 @@ class HelloWorld extends React.Component {
   };
 
   handleButtonClick = (props) => {
-    console.log(props)
+    // console.log(props)
     this.setState({
         who: props
     })
   }
   
   renderButtons() {
-    console.log('clicked')
+    // console.log('clicked')
     return this.helloTo.map((to, index) => (
       <button key={index} onClick={() => this.handleButtonClick(to)}>
         {to}

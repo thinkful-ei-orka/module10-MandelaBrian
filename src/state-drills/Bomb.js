@@ -1,40 +1,52 @@
 import React from 'react';
 
 class Bomb extends React.Component {
-    state {
-        count: 0
-    };
+    constructor(props){
+        super(props)
+        this.state = { count: 0 };
+        }
 
     tickTock = 'tick'
 
-    function divTwo = () {e => return e % 2 === 0}
-    function equalEight = () { e => return e >= 8}
+    divTwo (crntCount) {
+        return this.state.count % 2 === 0
+    }
+    equalEight (crntCount) {
+        return this.state.count >= 8
+    }
 
     componentDidMount(){
         this.interval = setInterval(() => {
             this.setState({
-                count: ++count
+                count: this.state.count + 1
+                
             })
         }, 1000)
+        console.log(this.state.count)
+    };
 
-    function tickOrTock = () {
-        if (equalEight) {
-            
-            return 'BOOM!!!'}
-        
-        else if (divTwo) {
+    TickOrTock () {
+        if (this.equalEight) {
+            clearInterval()
+            this.setState({
+                count: 0
+            })
+            return 'BOOM!!!'
+        } else if (this.divTwo) {
             return 'tick'
+        } else if (!this.divTwo) {
+            return 'tock'
+        } else {
+            return 'Waiting to start'
         }
-        
-        else if (!divTwo) {return 'tock'}
-        
+        console.log(this.state.count)
 
     }
 
     render() {
-        return <div>
-                <p>{tickTock}</p>
-            </div>
+        return (<div>
+                <p>{<TickOrTock/>}</p>
+            </div>)
     }
 }
 
