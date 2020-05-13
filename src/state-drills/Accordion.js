@@ -24,7 +24,7 @@ class Accordion extends React.Component {
     };
 
     handleButtonClick = (index) => {
-        console.log(index)
+        
         this.setState({
             expandedIndex: index
         })
