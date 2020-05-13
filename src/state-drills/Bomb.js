@@ -16,13 +16,17 @@ class Bomb extends React.Component {
     }
 
     componentDidMount(){
-        this.interval = setInterval(() => {
+        setTimeout(() => {
             this.setState({
                 count: this.state.count + 1
+        })
+    }, 1000)
+        // this.interval = setInterval(() => {
+        //     this.setState({
+        //         count: this.state.count + 1
                 
-            })
-        }, 1000)
-        console.log(this.state.count)
+        //     })
+        // }, 1000)   
     };
 
     TickOrTock = () => {
@@ -39,11 +43,12 @@ class Bomb extends React.Component {
         } else {
             return 'Waiting to start'
         }
-        console.log(this.state.count)
+        
 
     }
 
     render() {
+        console.log(this.state.count)
         return (<div>
                 <p>{<TickOrTock/>}</p>
             </div>)
