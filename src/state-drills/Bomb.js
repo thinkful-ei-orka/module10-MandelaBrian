@@ -8,11 +8,11 @@ class Bomb extends React.Component {
 
     tickTock = 'tick'
 
-    divTwo (crntCount) {
-        return this.state.count % 2 === 0
+    divTwo = () => {
+        return (this.state.count % 2 === 0)
     }
-    equalEight (crntCount) {
-        return this.state.count >= 8
+    equalEight = () => {
+        return (this.state.count >= 8)
     }
 
     componentDidMount(){
@@ -25,7 +25,7 @@ class Bomb extends React.Component {
         console.log(this.state.count)
     };
 
-    TickOrTock () {
+    TickOrTock = () => {
         if (this.equalEight) {
             clearInterval()
             this.setState({
